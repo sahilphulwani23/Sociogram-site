@@ -1,11 +1,20 @@
+import { useState } from 'react';
 import './App.css';
+import Loading from './components/Loading';
 import HomePage from './components/HomePage';
-import Navbar from "./components/Navbar";
+
 
 function App() {
+
+const[isLoading,setIsLoading]=useState(true);
+
+setTimeout(()=>{
+setIsLoading(false);
+},2500);
+
   return (
     <div>
-      <HomePage/>
+   {isLoading?<Loading/>:<HomePage/>}
     </div>
   );
 }
